@@ -1,34 +1,25 @@
-//todo: figure out why rows aren't being created properly when reset --changed to display block
-//why is hovering code for new grid broken? --added code to 
-//get the width and height of squares to fill #wrapper
-// //
+//todo: add fade in option, add randomized colors (themed?), clean it up
 
 var rows = 5; //define how many rows and columns in your grid
 var columns = 5; //define how many rows and columns in your grid
-// var pixel = 1000 / rows + 'px';
 
 
 $(document).ready(function() { 
 
-
-
-	// var rows = prompt("Please enter the length of your grid", "Please input a number");
-	// var columns = prompt("Please enter the width of your grid", "Please input a number");
-
 	makeGrid();
 
 	document.getElementById("reset").onclick = function() {
-		$(".square").removeClass("blackBackground");
+		$(".square").removeClass("blackBackground");//clears the grid for a new
 		$(".square").remove();
 		$(".row").remove();
 	
-		rows = parseInt(prompt("Please enter the length of your new grid", "Please input a number"), 10);
-		columns = parseInt(prompt("Please enter the width of your new grid", "Please input a number"), 10);
+		rows = parseInt(prompt("Please enter the length of your new grid (1-100)", "Please input a number"), 10);
+		columns = parseInt(prompt("Please enter the width of your new grid (1-100)", "Please input a number"), 10);
 
 		makeGrid();
 	};	
 
-	document.getElementById("clear").onclick = function() {
+	document.getElementById("clear").onclick = function() {//wipes grid
 		$(".square").removeClass("blackBackground");
 	};
 });
@@ -36,9 +27,6 @@ $(document).ready(function() {
 
 
 function makeGrid() {
-	// var $wrapper = $("<div />", {
-	// 	class: 'wrapper'
-	// });
 
 	var $row = $("<div />", { // make the jQuery variable row and make it a <div class="row">
 		class: 'row'
